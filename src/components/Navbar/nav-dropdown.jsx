@@ -42,8 +42,8 @@ export default function MobileDropdown() {
                 <li>
                     <a>Parent</a>
                     <ul className="p-2">
-                        <li><Link href="/submenu1" onClick={handleCloseDropdown}>Submenu 1</Link></li>
-                        <li><Link href="/submenu2" onClick={handleCloseDropdown}>Submenu 2</Link></li>
+                        <li><Link href="/about-me" onClick={handleCloseDropdown}>About Me</Link></li>
+                        <li><Link href="/projects" onClick={handleCloseDropdown}>Projects</Link></li>
                     </ul>
                 </li>
                 <li><Link href="/item3" onClick={handleCloseDropdown}>Item 3</Link></li>
