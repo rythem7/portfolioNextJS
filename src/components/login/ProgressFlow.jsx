@@ -7,10 +7,9 @@ import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 // ScrollSmoother requires ScrollTrigger
 import { ScrollSmoother } from "gsap/ScrollSmoother";
-import authSteps from "./authSteps";
 import Checkpoint from "./Checkpoint";
 
-export default function AuthMotionPath() {
+export default function ProgressFlow({ steps }) {
     const pathRef = useRef(null);
     const dotRef = useRef(null);
     const containerRef = useRef(null);
@@ -44,28 +43,28 @@ export default function AuthMotionPath() {
         });
 
         gsap.utils.toArray(".checkpoint").forEach((el, i) => {
-            const topValue = parseInt(authSteps[i].top);
+            const topValue = parseInt(steps[i].top);
             gsap.to(el, {
                 opacity: 1,
                 x: 50,
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: `top+=${topValue - 550} top`,
+                    start: `top+=${topValue - 450} top`,
                     end: `top+=${topValue - 300} top`,
                     toggleActions: "play none none reverse",
                 },
-                duration: 0.5,
-                ease: "power2.out",
+                duration: 0.4,
+                ease: "power4.out",
             });
         });
     }, []);
 
     return (
-        <div ref={containerRef} className="relative h-[2200px] w-full z-0">
+        <div ref={containerRef} className="relative h-[2200px] overflow-x-clip w-full z-0">
             {/* SVG Path (starts below viewport) */}
             <svg
                 viewBox="0 0 200 2200"
-                className="absolute top-0 lg:left-1/2 left-1/8 -translate-x-1/2 w-[200px] z-10 h-full"
+                className="absolute top-0 lg:left-1/2 left-1/6 -translate-x-1/2 max-w-[200px] z-10 h-full"
                 id="pathSVG"
             >
                 <path
@@ -88,7 +87,7 @@ export default function AuthMotionPath() {
                 ref={dotRef}
                 className="w-6 h-6 rounded-full bg-accent drop-shadow-lg drop-shadow-accent/50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
             />
-            {authSteps.map((checkpoint, i) => (
+            {steps.map((checkpoint, i) => (
                 <Checkpoint
                     key={i}
                     title={checkpoint.title}

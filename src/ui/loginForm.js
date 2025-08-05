@@ -38,8 +38,8 @@ export default function LoginForm() {
 
     const handleLogin = async (formData) => {
         // Simulate login
-        const username = form.username;
-        const password = form.password;
+        const username = formData.username;
+        const password = formData.password;
         if (username === "user" && password === "pass") {
             setIsAuthenticated(true);
             setError("");
@@ -50,7 +50,7 @@ export default function LoginForm() {
 
     const handleSignup = async (formData) => {
         // Simulate signup
-        const { username, password, confirmPassword } = form;
+        const { username, password, confirmPassword } = formData;
         if (!username || !password) {
             setError("All fields are required");
             return;
@@ -84,13 +84,13 @@ export default function LoginForm() {
     }
 
     return (
-        <div ref={cardRef} className="max-w-lg mx-auto flex flex-col gap-4 justify-center mt-10 p-6 bg-base-300 rounded-box shadow-2xl shadow-accent/40">
+        <div ref={cardRef} className="w-[70vw] max-w-lg mx-auto flex flex-col gap-4 justify-center mt-10 p-6 bg-base-300 rounded-box shadow-2xl shadow-accent/40">
             <h2 className="text-2xl font-bold">
                 {isSignup ? "Sign Up" : "Login"}
             </h2>
             <form
                 action={isSignup ? handleSignup : handleLogin}
-                className="space-y-4 max-w-md"
+                className="space-y-4 md:w-md"
             >
                 <div>
                     <label className="block mb-1 font-medium">Username</label>
