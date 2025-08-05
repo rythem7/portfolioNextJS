@@ -84,13 +84,13 @@ export default function LoginForm() {
     }
 
     return (
-        <div ref={cardRef} className="max-w-lg mx-auto mt-10 p-6 bg-base-300 rounded-box shadow-2xl shadow-accent/40">
-            <h2 className="text-2xl font-bold mb-4">
+        <div ref={cardRef} className="max-w-lg mx-auto flex flex-col gap-4 justify-center mt-10 p-6 bg-base-300 rounded-box shadow-2xl shadow-accent/40">
+            <h2 className="text-2xl font-bold">
                 {isSignup ? "Sign Up" : "Login"}
             </h2>
             <form
                 action={isSignup ? handleSignup : handleLogin}
-                className="space-y-4 w-md"
+                className="space-y-4 max-w-md"
             >
                 <div>
                     <label className="block mb-1 font-medium">Username</label>

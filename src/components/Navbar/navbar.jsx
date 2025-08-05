@@ -19,7 +19,7 @@ function Navbar() {
                             <span>About <span className='text-accent'>Me!</span></span>
                         </Link>
                     </li>
-                    <li><Link href='/projects'>What's next?</Link></li>
+                    <li><Link href='/login'>Login</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">

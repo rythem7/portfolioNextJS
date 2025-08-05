@@ -43,7 +43,7 @@ export default function MobileDropdown() {
                     <a>Parent</a>
                     <ul className="p-2">
                         <li><Link href="/about-me" onClick={handleCloseDropdown}>About Me</Link></li>
-                        <li><Link href="/projects" onClick={handleCloseDropdown}>Projects</Link></li>
+                        <li><Link href="/login" onClick={handleCloseDropdown}>Login</Link></li>
                     </ul>
                 </li>
                 <li><Link href="/item3" onClick={handleCloseDropdown}>Item 3</Link></li>

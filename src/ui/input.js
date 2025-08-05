@@ -7,7 +7,7 @@ export default function Input({ type = "text", placeholder = "Enter text", class
                 className="w-full bg-transparent rounded-box px-4 py-2 focus:outline-none text-base-content"
                 required={required}
             />
-            <button className="btn btn-ghost rounded-box px-4 py-2 brightness-80 hover:brightness-100">
+            <button className="btn btn-accent text-accent-content rounded-box px-4 py-2 brightness-50 hover:brightness-75">
                 Submit
             </button>
         </div>
