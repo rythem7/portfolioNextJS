@@ -15,10 +15,10 @@ function Section2() {
     }, ":scope > div"); // targets selector for direct children
 
     return (
-        <div className="bg-neutral-900 w-screen min-h-[110vh]  pt-[10rem] pb-[35rem] mix-blend-overlay">
-            <div data-speed="0.9" className="container z-20 mx-auto min-h-[110vh] lg:max-w-[80rem] lg:pt-[15rem] text-center text-white">
+        <div className="bg-neutral-900 w-screen min-h-[110vh]  pt-[10rem] pb-[35rem]">
+            <div data-speed="0.8" className="container z-20 mx-auto min-h-[110vh] lg:max-w-[80rem] lg:pt-[15rem] text-center text-white">
                 <h1 className="text-4xl">Section 2</h1>
-                <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4 gap-4 mt-auto will-change-transform">
+                <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4 gap-8 md:gap-4 mt-auto will-change-transform">
                     <GridItem />
                     <GridItem />
                     <GridItem />

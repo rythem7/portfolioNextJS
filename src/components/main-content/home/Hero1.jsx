@@ -11,7 +11,7 @@ export default function Hero1() {
             </div>
             {/* </div> */}
 
-            <div className="hero-content min-h-screen justify-start lg:items-center items-end lg:w-[75vw] p-10 text-neutral-content mix-blend-screen">
+            <div className="hero-content min-h-screen justify-start lg:items-center items-end lg:w-[75vw] px-10 text-neutral-content">
                 <div data-speed="0.8" className="max-w-3xl w-[90%]">
                     <h1 className="mb-5 text-2xl lg:text-7xl font-bold select-none">
                         Rythem <span className="text-accent">Dhamija</span>
