@@ -9,7 +9,11 @@ export default function BrokenItem() {
     const imageRef = useRef(null);
 
     useGSAP(() => {
+        // Helper to check if screen is large (Tailwind 'lg': min-width 1024px)
+        const isLargeScreen = () => window.innerWidth >= 1024;
+
         const handleMouseMove = (e) => {
+            if (!isLargeScreen()) return;
             const rect = containerRef.current.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
@@ -34,9 +38,23 @@ export default function BrokenItem() {
         container.addEventListener("mousemove", handleMouseMove);
         container.addEventListener("mouseleave", handleMouseLeave);
 
+        // Reset image position on resize if screen becomes small
+        const handleResize = () => {
+            if (!isLargeScreen()) {
+                gsap.to(imageRef.current, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.3,
+                    ease: "power3.out"
+                });
+            }
+        };
+        window.addEventListener("resize", handleResize);
+
         return () => {
             container.removeEventListener("mousemove", handleMouseMove);
             container.removeEventListener("mouseleave", handleMouseLeave);
+            window.removeEventListener("resize", handleResize);
         };
     }, []);
 

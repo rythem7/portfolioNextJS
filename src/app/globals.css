@@ -21,6 +21,23 @@
 		--foreground: #ededed;
 	}
 } */
+:root {
+	--c1: #171717;
+	--c2: #0f2027;
+	--c3: #302b63;
+	--c4: #130406;
+}
+
+#gradient-bg {
+	background: linear-gradient(
+		225deg,
+		var(--c1),
+		var(--c2),
+		var(--c3),
+		var(--c4)
+	);
+	background-size: 300% 300%;
+}
 
 body {
 	/* background: var(--background);

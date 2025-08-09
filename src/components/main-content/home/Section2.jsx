@@ -7,7 +7,7 @@ import BrokenItem from "./BrokenItem";
 function Section2() {
     const ref = useRef(null);
     useFadeInFromY(ref, 0.3, 0.7, 40, "back.out(2.5)", 0.1, {
-        start: "top bottom",
+        start: "top center",
         end: "bottom top",
         scrub: false,
         // markers: true,

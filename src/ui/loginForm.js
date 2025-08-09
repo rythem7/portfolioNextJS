@@ -97,6 +97,7 @@ export default function LoginForm() {
                     <input
                         type="text"
                         name="username"
+                        autoComplete="username"
                         value={form.username}
                         onChange={handleChange}
                         className="w-full border px-3 py-2 rounded-box focus:outline-none focus:ring"
@@ -111,6 +112,7 @@ export default function LoginForm() {
                         value={form.password}
                         onChange={handleChange}
                         className="w-full border px-3 py-2 rounded-box focus:outline-none focus:ring"
+                        autoComplete="current-password"
                         required
                     />
                 </div>

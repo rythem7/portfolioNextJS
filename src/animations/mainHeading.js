@@ -7,15 +7,15 @@ import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(useGSAP);
 
-export function useHeadingAnimation(headingRef, isAnimating) {
+export function useHeadingAnimation(headingRef, setIsAnimating) {
     useGSAP(() => {
         const ctx = gsap.context(() => {
             const tl = gsap.timeline({
                 onStart: () => {
-                    isAnimating.current = true;
+                    setIsAnimating(true);
                 },
                 onComplete: () => {
-                    isAnimating.current = false;
+                    setIsAnimating(false);
                 }
             });
 

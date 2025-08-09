@@ -29,9 +29,11 @@ export default function RootLayout({ children }) {
                 <header className="fixed top-0 z-50 bg-transparent w-full">
                     <Navbar />
                 </header>
-
-                {children}
-
+                <div id="smooth-wrapper" className="min-h-screen w-full">
+                    <div id="smooth-content" className={`${roboto.variable} font-roboto`}>
+                        {children}
+                    </div>
+                </div>
             </body>
         </html>
     );

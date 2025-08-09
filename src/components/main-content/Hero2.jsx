@@ -4,19 +4,19 @@ import secImg from "@/assets/20250515_141026.png";
 import waterDrop from "@/assets/water-drop.svg";
 import Image from "next/image";
 import { useHeadingAnimation } from "@/animations/mainHeading";
-import { useRef, useContext, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from 'gsap';
-import { BrokenContext } from "@/context/brokenContext";
+// import { BrokenContext } from "@/context/brokenContext";
 
 
 function Hero2() {
-    const { broken, setBroken } = useContext(BrokenContext);
+    const [broken, setBroken] = useState(false);
     const started = useRef(false);
     const spanRef = useRef(null);
     const headingRef = useRef(null);
-    const isAnimating = useRef(null);
+    const [isAnimating, setIsAnimating] = useState(false);
     const dropRef = useRef(null);
-    useHeadingAnimation(headingRef, isAnimating);
+    useHeadingAnimation(headingRef, setIsAnimating);
 
     const animateFix = async () => {
         await gsap.to(spanRef.current, {
@@ -30,7 +30,7 @@ function Hero2() {
             duration: 0.1,
             ease: "power3.out",
         });
-        isAnimating.current = false;
+        setIsAnimating(false);
         setBroken(false);
     };
 
@@ -61,15 +61,15 @@ function Hero2() {
             { autoAlpha: 0, y: -50 },
             { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }
         );
-        isAnimating.current = false;
+        setIsAnimating(false);
         setBroken(true);
     };
 
     async function handleClick() {
-        if (isAnimating.current) return;
+        if (isAnimating) return;
         if (!started.current) {
             started.current = true;
-            isAnimating.current = true;
+            setIsAnimating(true);
         }
 
         if (broken) {
@@ -84,12 +84,12 @@ function Hero2() {
     return (
         <>
             <div className="hero bg-neutral-850 min-h-screen">
-                <div className="hero-content lg:justify-between flex-col lg:flex-row md:w-[65vw] bg-transparent p-0">
+                <div className="hero-content lg:justify-between flex-col lg:flex-row lg:w-[60vw] bg-transparent lg:p-0">
                     <div className="relative max-w-md ">
                         <Image
                             src={secImg}
                             alt="second image"
-                            className=" brightness-60 contrast-115 drop-shadow-2xl rounded-box"
+                            className="brightness-60 contrast-120 drop-shadow-2xl rounded-box"
                             priority
                         />
                         <div ref={dropRef} style={{ visibility: "hidden" }} className="absolute top-1/3 right-1/3">
@@ -101,16 +101,13 @@ function Hero2() {
                         </div>
                     </div>
 
-                    <div className='max-w-xl pr-20'>
+                    <div className='max-w-xl lg:pr-20'>
                         <h1 className={`text-7xl font-bold select-none will-change-auto`} style={{ visibility: "hidden" }} ref={headingRef}>
-                            About <button className='bg-transparent text-accent cursor-pointer inline-block' ref={spanRef} onClick={handleClick} disabled={isAnimating.current}>Me</button>
+                            About <button className='bg-transparent text-accent cursor-pointer inline-block' ref={spanRef} onClick={handleClick} disabled={isAnimating}>Me</button>
                         </h1>
                         <h3 className='text-2xl my-6'>Developer <span className='text-accent/95'>& Designer</span></h3>
                         <p className="pb-8">
-                            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                            quasi. In deleniti eaque aut repudiandae et a id nisi. Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                            quasi. In deleniti eaque aut repudiandae et a id nisi. Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                            quasi. In deleniti eaque aut repudiandae et a id nisi.
+                            Hi! I&apos;m Rythem — a web developer who turns ideas into fast, responsive apps using React, Tailwind CSS, and GSAP. I also build full stack features with Node.js and PostgreSQL. Whether you need a sleek landing page, custom animation, or full web app, I&apos;ve got you covered.
                         </p>
                         <button className="btn btn-accent rounded-box">Get Started</button>
                     </div>

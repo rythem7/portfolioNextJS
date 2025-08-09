@@ -14,8 +14,6 @@ import Section3 from "@/components/main-content/home/Section3";
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother);
 
 export default function Home() {
-    const wrapperRef = useRef(null);
-    const contentRef = useRef(null);
     useGSAP(() => {
         let smoother = ScrollSmoother.create({
             smooth: 0.7,
@@ -28,15 +26,14 @@ export default function Home() {
     }, []);
 
     return (
-        <div id="smooth-wrapper" ref={wrapperRef} className="h-screen w-full">
-            <div id="smooth-content" ref={contentRef}>
-                <Hero1 />
-                <div className="h-[50vh] lg:h-[30vh] bg-gradient-to-b from-neutral-950 to-neutral-900">
-                </div>
-                <Section2 />
-                <Section3 />
-                {/* <Footer /> */}
+
+        <>
+            <Hero1 />
+            <div className="h-[50vh] lg:h-[30vh] bg-gradient-to-b from-neutral-950 to-neutral-900">
             </div>
-        </div>
+            <Section2 />
+            <Section3 />
+            {/* <Footer /> */}
+        </>
     );
 }
